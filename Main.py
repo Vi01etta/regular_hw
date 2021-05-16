@@ -19,6 +19,7 @@ for keys in contacts_list:
     keys_as_list = result.split(',')
     new_contacts_list.append(keys_as_list)
 
+
 full_name = r'^([А-ЯЁа-яё]+)(\s*)(\,?)([А-ЯЁа-яё]+)' \
             r'(\s*)(\,?)([А-ЯЁа-яё]*)(\,?)(\,?)(\,?)'
 name_sub = r'\1\8\4\6\9\7\8'
@@ -37,6 +38,8 @@ for keys1 in new_contacts_list2:
             for i in range(len(new_contacts_list2[0])):
                     if keys1[i] == '':
                         keys1[i] = keys2[i]
+        if len(keys1) > len(keys2) and keys1[-1] == "":
+            keys1.pop()
 for keys in new_contacts_list2:
     if keys not in new_contacts_list3:
         new_contacts_list3.append(keys)
